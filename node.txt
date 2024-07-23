@@ -1,0 +1,121 @@
+ "Node.js"
+
+ Introduction to Node.js
+
+Node.js aik server-side runtime environment hai jo aapko server par JavaScript chalane ki ijazat deta hai. Yeh Chrome ke V8 JavaScript engine par based hai aur developers ko server-side scripting ke liye JavaScript use karne ki sahulat deta hai. Node.js mein har cheez "modules" ke ird gird hoti hai, jo reusable code ke pieces hote hain. Kisi bhi kaam ko anjaam dene ke liye, aap typically ek ya zyada modules ka istemal karte hain.
+
+Node.js Version Check Karna
+
+Apne system par installed Node.js ki version check karne ke liye, terminal kholen aur yeh type karen:
+
+node -v
+
+
+Node.js Project Setup Karna
+
+Jab aap ek naya Node.js project start karte hain, to aapko typically ek `package.json` file ki zarurat hoti hai. Yeh file aapke project ke metadata ko contain karti hai aur dependencies list karti hai jo aapke project ko chalane ke liye zaruri hoti hain. Yeh file create karne ke liye, yeh command use karen:
+
+npm init
+
+Yeh command aapko series of questions ke through guide karegi taake aap apne project ka `package.json` file generate kar saken.
+
+ `package.json` aur `package-lock.json` ka Farq :
+
+-`package.json`**: Yeh file aapke project ki dependencies ko manage karne ke liye use hoti hai. Yeh aapke project ko chalane ke liye zaruri packages list karti hai.
+-`package-lock.json`**: Yeh file exact versions ko record karti hai sab dependencies jo install hoti hain, taake project setup har environment mein consistent rahe. Yeh file npm automatically generate karta hai jab aap dependencies install karte hain.
+
+ Node.js Mein Modules Ke Types
+
+Node.js mein teen types ke modules hote hain:
+
+1. **File-Based Modules**:
+   - Yeh custom modules hote hain jo aap apne project mein create karte hain.
+   - Example:
+     ```js
+     // File: math.js
+     function add(a, b) {
+       return a + b;
+     }
+     module.exports = add;
+
+     // File: app.js
+     const add = require('./math');
+     console.log(add(2, 3)); // Output: 5
+     ```
+
+2. **Built-In Modules**:
+   - Yeh modules Node.js ke sath built-in aate hain, jaise ke `fs`, `http`, aur `path`.
+   - Example:
+     ```js
+     const fs = require('fs');
+     fs.readFile('example.txt', 'utf8', (err, data) => {
+       if (err) {
+         console.error(err);
+         return;
+       }
+       console.log(data);
+     });
+     ```
+
+3. **Third-Party Modules**:
+   - Yeh modules community dwara develop hote hain jo aap npm ke through install kar sakte hain.
+   - Example:
+     ```js
+     const express = require('express');
+     const app = express();
+
+     app.get('/', (req, res) => {
+       res.send('Hello, world!');
+     });
+
+     app.listen(3000, () => {
+       console.log('Server is running on port 3000');
+     });
+     ```
+
+### Import aur Export Modules
+
+Node.js mein aap modules ko import aur export kar sakte hain do tareeqon se: CommonJS aur ES6 (ECMAScript 6) syntax.
+
+#### CommonJS (Node.js Default)
+
+- **Exporting**:
+  ```js
+  // File: math.js
+  module.exports = function add(a, b) {
+    return a + b;
+  };
+  ```
+
+- **Importing**:
+  ```js
+  // File: app.js
+  const add = require('./math');
+  console.log(add(2, 3)); // Output: 5
+  ```
+
+ ES6 Modules
+
+- **Exporting**:
+  ```js
+  // File: math.js
+  export default function add(a, b) {
+    return a + b;
+  };
+  ```
+
+- **Importing**:
+  ```js
+  // File: app.js
+  import add from './math';
+  console.log(add(2, 3)); // Output: 5
+  ```
+
+ES6 modules use karne ke liye, aapko `"type": "module"` set karna padega apne `package.json` file mein:
+```json
+{
+  "type": "module"
+}
+```
+
+In fundamentals ko samajhne ke baad, aap Node.js mein efficiently server-side applications bana sakte hain.

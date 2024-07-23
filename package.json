@@ -1,0 +1,19 @@
+{
+  "name": "malik-kashif",
+  "version": "1.0.0",
+  "description": "\"This is the node js series\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "\"malik",
+    "kashif",
+    "awan\""
+  ],
+  "author": "malik kashif",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

@@ -1,0 +1,143 @@
+Important Modules  you must learn this:
+
+os module,
+datetime module,
+fs module,
+url module,
+path module,
+http module,
+
+wasy to bht sa modules hain lakin jo zyada important hain wo yahi hain, in par grip zyada achi honi cahiya.
+
+
+
+### 1. OS Module
+`os` module operating system related utility methods aur properties provide karta hai. Yeh aapko operating system ke sath interact karne ki sahulat deta hai.
+
+**Isko Kyun Use Karte Hain?**
+- System ki architecture, memory, CPUs, aur network interfaces ki information leni ke liye.
+
+**Example:**
+```js
+const os = require('os');
+
+console.log('OS Platform:', os.platform());
+console.log('OS CPU architecture:', os.arch());
+console.log('Total memory:', os.totalmem());
+console.log('Free memory:', os.freemem());
+```
+
+### 2. Datetime Module
+Node.js mein specific `datetime` module nahi hota, lekin aap `Date` object ka use karke dates aur times ke sath kaam kar sakte hain. Advanced operations ke liye, aap third-party libraries jese ke `moment` ya `date-fns` use kar sakte hain.
+
+**Isko Kyun Use Karte Hain?**
+- Apne applications mein dates aur times handle karne ke liye.
+
+**Example with `Date`:**
+```js
+const now = new Date();
+console.log('Current date and time:', now);
+console.log('Current year:', now.getFullYear());
+console.log('Current month:', now.getMonth() + 1); // Months zero-based hoti hain
+console.log('Current day:', now.getDate());
+```
+
+**Example with `moment` (third-party library):**
+```js
+const moment = require('moment');
+
+const now = moment();
+console.log('Current date and time:', now.format('YYYY-MM-DD HH:mm:ss'));
+```
+
+### 3. FS Module
+`fs` module ek API provide karta hai jo file system ke sath interact karne ke liye use hoti hai.
+
+**Isko Kyun Use Karte Hain?**
+- Files read aur write karne, directories create karne, aur file system ke sath interact karne ke liye.
+
+**Example:**
+```js
+const fs = require('fs');
+
+// File read karna
+fs.readFile('example.txt', 'utf8', (err, data) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  console.log(data);
+});
+
+// File mein write karna
+fs.writeFile('example.txt', 'Hello, Node.js!', (err) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  console.log('File has been written');
+});
+```
+
+### 4. URL Module
+`url` module URL resolution aur parsing ke liye utilities provide karta hai.
+
+**Isko Kyun Use Karte Hain?**
+- URLs ko parse aur manipulate karne ke liye.
+
+**Example:**
+```js
+const url = require('url');
+
+const myUrl = new URL('https://example.com:8080/pathname/?search=test#hash');
+console.log('Host:', myUrl.host);
+console.log('Pathname:', myUrl.pathname);
+console.log('Search Params:', myUrl.searchParams);
+```
+
+### 5. Path Module
+`path` module file aur directory paths ke sath kaam karne ke liye utilities provide karta hai.
+
+**Isko Kyun Use Karte Hain?**
+- File paths ko handle aur transform karne ke liye.
+
+**Example:**
+```js
+const path = require('path');
+
+const filePath = '/usr/local/bin/node';
+console.log('Directory:', path.dirname(filePath));
+console.log('Base name:', path.basename(filePath));
+console.log('Extension:', path.extname(filePath));
+console.log('Join paths:', path.join('/foo', 'bar', 'baz/asdf', 'quux', '..'));
+```
+
+### 6. HTTP Module
+`http` module aapko HTTP server create karne aur HTTP requests banane ki sahulat deta hai.
+
+**Isko Kyun Use Karte Hain?**
+- Web servers create karne aur HTTP requests aur responses handle karne ke liye.
+
+**Example:**
+```js
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello, world!\n');
+});
+
+server.listen(3000, '127.0.0.1', () => {
+  console.log('Server running at http://127.0.0.1:3000/');
+});
+```
+
+Yeh modules Node.js mein kaam karne ke liye fundamental hain aur inko samajhne se aap robust aur efficient applications bana sakte hain.
+
+
+MOST IMPORTANT PACKAGE JO HAR PC MA HONA CAHIYA 
+
+nodemon ----> yah package apko bar bar node js ki file ko run karny ka liya node likhny sa bachata ha, mean ap jasa hi save kary gay, uska output nazar auga apko.
+
+"   npm i nodemon -g  "
